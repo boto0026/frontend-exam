@@ -20,10 +20,14 @@ function loadScript() {
     });
 
     //01 Project Name and Opening Hours
-    document.querySelector('.project-name').textContent = `${myObject.bar.name}`;
-    document.querySelector('.opening-hours').textContent = `Opening Hour: ${myObject.bar.closingTime}`;
-
-
+    document.querySelector(`.project-name`).textContent = `${myObject.bar.name}`;
+    //Closing Time
+    document.querySelector(`.closing-time`).textContent = `Closing time: ${myObject.bar.closingTime}`;
+    // Current Time
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    document.querySelector(`.current-time`).textContent = `Current time:` + hours + ":" + minutes;
 
     //02 Bartenders Name
     showBartenders();
