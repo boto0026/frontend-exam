@@ -23,14 +23,54 @@ function loadScript() {
     document.querySelector('.project-name').textContent = `${myObject.bar.name}`;
     document.querySelector('.opening-hours').textContent = `Opening Hour: ${myObject.bar.closingTime}`;
 
-    //03 Display PEOPLE IN LINE and PEOPLE GETTING SERVED
+
+
+    //02 Bartenders Name
+    showBartenders();
+
+    function showBartenders() {
+
+        //cleaning the the place of the clone
+        document.querySelector(".bartenders").innerHTML = "";
+
+        let bartenders = myObject.bartenders;
+
+        bartenders.forEach(bartender => {
+
+            //define the bartenders template
+            let bartendersTemplate = document.querySelector(".bartendersTemplate").content;
+
+            //define the bartendersClone
+            let bartendersClone = bartendersTemplate.cloneNode(true);
+
+            //getting the names of the bartenders
+            bartendersClone.querySelector(".bartender_name").textContent = `Bartender\´s name: ${bartender.name}`;
+
+            //bartender's status of work
+            if (bartender.status == "WORKING") {
+                bartendersClone.querySelector(".bartender_status").textContent = "Working";
+                bartendersClone.querySelector(".bartender_status").style.color = "green";
+            } else {
+                bartendersClone.querySelector(".bartender_status").textContent = "Getting ready";
+                bartendersClone.querySelector(".bartender_status").style.color = "red";
+            }
+
+            //append clone in the div .bartenders
+            document.querySelector(".bartenders").appendChild(bartendersClone);
+
+        })
+    }
+
+
+
+    //03 PEOPLE IN LINE and PEOPLE GETTING SERVED
     document.querySelector('.waiting').textContent = `${myObject.queue.length}`;
     document.querySelector('.people-served').textContent = `People served: ${myObject.serving.length}`;
 
-    //04 Display BEERS SERVED TODAY
+    //04 BEERS SERVED TODAY
     document.querySelector('.beers-served').textContent = `Served beers: ${beersServed}`;
 
-    //05 Display TAP CAPACITY/LEVEL
+    //05 TAP CAPACITY/LEVEL
 
 
 
