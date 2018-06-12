@@ -55,6 +55,21 @@ function loadScript() {
                 bartendersClone.querySelector(".bartender_status").style.color = "red";
             }
 
+            //bartender´s status detail
+            if (bartender.statusDetail == "pourBeer") {
+                bartendersClone.querySelector(".bartender_status_detail").textContent = `This bartender: Pours Beer`;
+            } else if (bartender.statusDetail == "startServing") {
+                bartendersClone.querySelector(".bartender_status_detail").textContent = `This bartender: Starts Serving`;
+            } else if (bartender.statusDetail == "receivePayment") {
+                bartendersClone.querySelector(".bartender_status_detail").textContent = `This bartender: Receives Payment`;
+            } else if (bartender.statusDetail == "releaseTap") {
+                bartendersClone.querySelector(".bartender_status_detail").textContent = `This bartender: Releases Tap`;
+            } else if (bartender.statusDetail == "reserveTap") {
+                bartendersClone.querySelector(".bartender_status_detail").textContent = `This bartender: Reserves Tap`;
+            } else {
+                bartendersClone.querySelector(".bartender_status_detail").textContent = `This bartender: Is waiting`;
+            }
+
             //append clone in the div .bartenders
             document.querySelector(".bartenders").appendChild(bartendersClone);
 
